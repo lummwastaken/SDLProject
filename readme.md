@@ -1,0 +1,1 @@
+Personal project to make a game using SDL libs and CMake
