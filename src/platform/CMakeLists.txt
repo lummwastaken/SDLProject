@@ -5,10 +5,12 @@ include_directories(
 )
 
 set(PLATFORM_SOURCES
+	"render/Renderer.cpp"
 	"window/Window.cpp"
 )
 
 set(PLATFORM_HEADERS
+	"render/Renderer.hpp"
 	"utils/Types.hpp"
 	"window/Window.hpp"
 )
