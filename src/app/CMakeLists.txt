@@ -26,4 +26,6 @@ target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE ${EXTERNAL_LIBRARIES})
 add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
 	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:${CMAKE_PROJECT_NAME}> $<TARGET_FILE_DIR:${CMAKE_PROJECT_NAME}>
 	COMMAND_EXPAND_LISTS
-) # installs needed DLLs automatically
+) 
+# installs needed DLLs automatically
+# except SDL_image and mixer, which have to be added manually

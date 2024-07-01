@@ -3,8 +3,7 @@
 namespace SDLGame 
 {
 	Window::Window() 
-		: mWindow(NULL), 
-		mRenderer(NULL)
+		: mWindow(NULL)
 	{
 	}
 
@@ -20,9 +19,9 @@ namespace SDLGame
 		{
 			shutdown();
 		}
-		else {
-			mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED);
-			if (mRenderer == NULL)
+		else
+		{
+			if (!mRenderer.init(mWindow, 0))
 			{
 				shutdown();
 			}
@@ -31,15 +30,12 @@ namespace SDLGame
 
 	void Window::update()
 	{
-		SDL_RenderClear(mRenderer);
-		SDL_SetRenderDrawColor(mRenderer, 0xff, 0xff, 0xff, 0xff);
-		SDL_RenderPresent(mRenderer);
+		mRenderer.renderFlush();
+		mRenderer.renderPresent();
 	}
 
 	void Window::shutdown()
 	{
-		SDL_DestroyRenderer(mRenderer);
-		mRenderer = NULL;
 		SDL_DestroyWindow(mWindow);
 		mWindow = NULL;
 	}

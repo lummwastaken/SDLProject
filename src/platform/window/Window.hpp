@@ -1,9 +1,9 @@
 #pragma once
 
 #include <SDL_video.h>
-#include <SDL_render.h>
 
 #include "Types.hpp"
+#include "Renderer.hpp"
 
 namespace SDLGame 
 {
@@ -18,8 +18,11 @@ namespace SDLGame
 		void update();
 
 		void shutdown();
+
+		SDL_Window* getWindow() { return mWindow; }
 	private:
 		SDL_Window* mWindow;
-		SDL_Renderer* mRenderer;
+
+		Renderer mRenderer;
 	};
 }
