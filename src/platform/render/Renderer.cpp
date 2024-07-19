@@ -2,10 +2,13 @@
 
 namespace SDLGame
 {
-	bool Renderer::init(SDL_Window* win, u32 flags)
+	void Renderer::init(SDL_Window* win, u32 flags)
 	{
 		mRenderer = SDL_CreateRenderer(win, -1, flags);
-		return mRenderer != NULL;
+		if (mRenderer == NULL)
+		{
+			destroy();
+		}
 	}
 
 	void Renderer::renderFlush()
@@ -17,5 +20,11 @@ namespace SDLGame
 	void Renderer::renderPresent()
 	{
 		SDL_RenderPresent(mRenderer);
+	}
+
+	void Renderer::destroy()
+	{
+		SDL_DestroyRenderer(mRenderer);
+		mRenderer = NULL;
 	}
 }

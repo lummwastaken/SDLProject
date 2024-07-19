@@ -9,32 +9,19 @@ namespace SDLGame
 
 	Window::~Window() 
 	{
-		shutdown();
+		destroy();
 	}
 
-	void Window::init(const char* t, u32 x, u32 y, u16 w, u16 h, u32 flags)
+	void Window::init(const char* title, u32 x, u32 y, u16 w, u16 h, u32 flags)
 	{
-		mWindow = SDL_CreateWindow(t, x, y, w, h, flags);
+		mWindow = SDL_CreateWindow(title, x, y, w, h, flags);
 		if (mWindow == NULL)
 		{
-			shutdown();
-		}
-		else
-		{
-			if (!mRenderer.init(mWindow, 0))
-			{
-				shutdown();
-			}
+			destroy();
 		}
 	}
 
-	void Window::update()
-	{
-		mRenderer.renderFlush();
-		mRenderer.renderPresent();
-	}
-
-	void Window::shutdown()
+	void Window::destroy()
 	{
 		SDL_DestroyWindow(mWindow);
 		mWindow = NULL;

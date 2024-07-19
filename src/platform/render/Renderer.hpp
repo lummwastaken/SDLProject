@@ -14,10 +14,12 @@ namespace SDLGame
 		{
 		}
 
-		bool init(SDL_Window* win, u32 flags);
+		void init(SDL_Window* win, u32 flags);
 
 		void renderFlush();
 		void renderPresent();
+
+		void destroy();
 	private:
 		SDL_Renderer* mRenderer;
 	};
