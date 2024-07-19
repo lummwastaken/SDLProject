@@ -13,6 +13,7 @@ set(PLATFORM_SOURCES
 set(PLATFORM_HEADERS
 	"render/Renderer.hpp"
 	"render/texture/Texture.hpp"
+	"utils/Paths.hpp"
 	"utils/Types.hpp"
 	"window/Window.hpp"
 )
