@@ -29,6 +29,8 @@ namespace SDLGame
 
 		void shutdown();
 
-		Window window;
+		Window mWindow;
+
+		Renderer mRenderer;
 	};
 }

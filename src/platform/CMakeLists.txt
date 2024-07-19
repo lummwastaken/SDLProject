@@ -6,11 +6,13 @@ include_directories(
 
 set(PLATFORM_SOURCES
 	"render/Renderer.cpp"
+	"render/texture/Texture.cpp"
 	"window/Window.cpp"
 )
 
 set(PLATFORM_HEADERS
 	"render/Renderer.hpp"
+	"render/texture/Texture.hpp"
 	"utils/Types.hpp"
 	"window/Window.hpp"
 )
