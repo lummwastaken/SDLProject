@@ -29,8 +29,6 @@ namespace SDLGame
 
 		void shutdown();
 
-		Window mWindow;
-
-		Renderer mRenderer;
+		std::unique_ptr<Window> mWindow = std::make_unique<Window>();
 	};
 }

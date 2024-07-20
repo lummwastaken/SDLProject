@@ -35,8 +35,7 @@ namespace SDLGame
 
 	void Application::initObjects()
 	{
-		mWindow.init("Test Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0);
-		mRenderer.init(mWindow.getWindow(), SDL_RENDERER_ACCELERATED);
+		mWindow->init("Test Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0);
 	}
 
 	void Application::runLoop()
@@ -53,18 +52,15 @@ namespace SDLGame
 				{
 					isRunning = false;
 				}
-				mRenderer.renderFlush();
-
-				mRenderer.renderPresent();
 			}
+			mWindow->render();
 		}
 		shutdown();
 	}
 
 	void Application::shutdown()
 	{
-		mWindow.destroy();
-		mRenderer.destroy();
+		mWindow->destroy();
 
 		IMG_Quit();
 		Mix_Quit();
