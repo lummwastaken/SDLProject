@@ -19,10 +19,19 @@ namespace SDLGame
 		{
 			destroy();
 		}
+		mRenderer->init(mWindow, SDL_RENDERER_ACCELERATED);
+	}
+
+	void Window::render()
+	{
+		mRenderer->renderFlush();
+		mRenderer->renderPresent();
 	}
 
 	void Window::destroy()
 	{
+		mRenderer->destroy();
+
 		SDL_DestroyWindow(mWindow);
 		mWindow = NULL;
 	}
