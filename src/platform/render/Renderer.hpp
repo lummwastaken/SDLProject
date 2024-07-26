@@ -14,7 +14,7 @@ namespace SDLGame
 		{
 		}
 
-		void init(SDL_Window* win, u32 flags);
+		bool init(SDL_Window* win, u32 flags);
 
 		void renderFlush();
 		void renderPresent();

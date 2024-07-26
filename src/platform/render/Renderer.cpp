@@ -1,14 +1,17 @@
 #include "Renderer.hpp"
+#include "Logger.hpp"
 
 namespace SDLGame
 {
-	void Renderer::init(SDL_Window* win, u32 flags)
+	bool Renderer::init(SDL_Window* win, u32 flags)
 	{
 		mRenderer = SDL_CreateRenderer(win, -1, flags);
 		if (mRenderer == NULL)
 		{
+			LOG_ERROR("Could not create renderer!", SDL_GetError());
 			destroy();
 		}
+		return mRenderer != NULL;
 	}
 
 	void Renderer::renderFlush()

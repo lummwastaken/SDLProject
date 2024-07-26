@@ -13,7 +13,14 @@ int main(int argc, char* argv[])
 		LOG_ERROR("Could not initialize subsystems!");
 		return 0;
 	}
-	gameApp->initObjects();
+	else 
+	{
+		if (!gameApp->initObjects())
+		{
+			LOG_ERROR("Could not initialize application!");
+			return 0;
+		}
+	}
 	gameApp->runLoop();
 	return 0;
 }

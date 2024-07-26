@@ -20,7 +20,7 @@ namespace SDLGame
 
 		bool initSubSystems();
 
-		void initObjects();
+		bool initObjects();
 
 		void runLoop();
 
