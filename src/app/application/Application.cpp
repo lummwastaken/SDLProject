@@ -14,35 +14,34 @@ namespace SDLGame
 		bool success = true;
 		if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
 		{
+			LOG_ERROR("Could not initialize SDL! SDL Error: {}", SDL_GetError());
 			success = false;
-			LOG_ERROR("Could not initialize SDL!");
 			shutdown();
 		}
 		else
 		{
 			if (IMG_Init(IMG_INIT_PNG) < 0)
 			{
+				LOG_ERROR("Could not initialize SDL_image! SDL_image Error: {}", IMG_GetError());
 				success = false;
-				LOG_ERROR("Could not initialize SDL_image!");
 				shutdown();
 			}
 			else
 			{
 				if (Mix_Init(MIX_INIT_OGG) < 0)
 				{
+					LOG_ERROR("Could not initialize SDL_mixer! SDL_mixer Error: {}", Mix_GetError());
 					success = false;
-					LOG_ERROR("Could not initialize SDL_mixer!");
 					shutdown();
 				}
 			}
 		}
-
 		return success;
 	}
 
 	bool Application::initObjects()
 	{
-		if (mWindow->init(
+		if (!mWindow->init(
 			"Test Window", 
 			SDL_WINDOWPOS_UNDEFINED, 
 			SDL_WINDOWPOS_UNDEFINED, 
@@ -50,9 +49,9 @@ namespace SDLGame
 			0
 		))
 		{
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	void Application::runLoop()

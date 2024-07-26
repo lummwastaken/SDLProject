@@ -5,17 +5,13 @@ include_directories(
 )
 
 set(PLATFORM_SOURCES
-	"events/EventHandler.cpp"
 	"render/Renderer.cpp"
-	"render/texture/Texture.cpp"
 	"utils/logging/Logger.cpp"
 	"window/Window.cpp"
 )
 
 set(PLATFORM_HEADERS
-	"events/EventHandler.hpp"
 	"render/Renderer.hpp"
-	"render/texture/Texture.hpp"
 	"utils/Paths.hpp"
 	"utils/Types.hpp"
 	"utils/logging/Logger.hpp"

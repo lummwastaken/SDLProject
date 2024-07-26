@@ -8,7 +8,7 @@ namespace SDLGame
 		mRenderer = SDL_CreateRenderer(win, -1, flags);
 		if (mRenderer == NULL)
 		{
-			LOG_ERROR("Could not create renderer!", SDL_GetError());
+			LOG_ERROR("Could not create renderer! SDL Error: %s", SDL_GetError());
 			destroy();
 		}
 		return mRenderer != NULL;
