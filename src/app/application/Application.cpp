@@ -4,14 +4,18 @@
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 
+#include "Logger.hpp"
+
 namespace SDLGame
 {
 	bool Application::initSubSystems()
 	{
+		Logger::init();
 		bool success = true;
 		if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
 		{
 			success = false;
+			LOG_ERROR("Could not initialize SDL! SDL Error: %s\n", SDL_GetError());
 			shutdown();
 		}
 		else
@@ -19,6 +23,7 @@ namespace SDLGame
 			if (IMG_Init(IMG_INIT_PNG) < 0)
 			{
 				success = false;
+				LOG_ERROR("Could not initialize SDL_image! SDL_image Error: %s\n", IMG_GetError());
 				shutdown();
 			}
 			else
@@ -26,10 +31,12 @@ namespace SDLGame
 				if (Mix_Init(MIX_INIT_OGG) < 0)
 				{
 					success = false;
+					LOG_ERROR("Could not initialize SDL_mixer! SDL_mixer Error: %s\n", Mix_GetError());
 					shutdown();
 				}
 			}
 		}
+
 		return success;
 	}
 
@@ -60,8 +67,10 @@ namespace SDLGame
 
 	void Application::shutdown()
 	{
+		LOG_INFO("Shutting down...");
 		mWindow->destroy();
 
+		Logger::quit();
 		IMG_Quit();
 		Mix_Quit();
 		SDL_Quit();

@@ -1,5 +1,8 @@
 #include <SDL_main.h>
 #include "Application.hpp"
+#include "Logger.hpp"
+
+#include<cassert>
 
 std::shared_ptr<SDLGame::Application> gameApp = gameApp->instance();
 
@@ -7,7 +10,7 @@ int main(int argc, char* argv[])
 {
 	if (!gameApp->initSubSystems())
 	{
-		//error here
+		LOG_ERROR("Could not initialize subsystems!");
 		return 0;
 	}
 	gameApp->initObjects();
