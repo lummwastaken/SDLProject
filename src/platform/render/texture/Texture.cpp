@@ -4,7 +4,10 @@ namespace SDLGame
 {
 	void Texture::free()
 	{
-		mTexture = NULL;
+		if (mTexture != NULL)
+		{
+			mTexture = NULL;
+		}
 		mWidth = 0;
 		mHeight = 0;
 	}
