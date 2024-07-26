@@ -1,4 +1,5 @@
 #include "Logger.hpp"
+#include <filesystem>
 
 namespace SDLGame
 {
@@ -6,6 +7,7 @@ namespace SDLGame
 
 	void Logger::init()
 	{
+		std::remove("logs/latest.log");
 		try
 		{
 			spdlog::set_pattern("%^[%T] [%n] [%l]: %v%$");
