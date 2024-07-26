@@ -1,6 +1,7 @@
 #pragma once
+#include <filesystem>
 
-#define ASSETS_PATH (RESOURCE_PATH+"/assets/")
-#define DATA_PATH (RESOURCE_PATH+"/data/")
+#define ASSETS_PATH std::filesystem::path(RESOURCE_PATH+"/assets")
+#define DATA_PATH std::filesystem::path(RESOURCE_PATH+"/data")
 
-#define TEXTURE_PATH (RESOURCE_PATH+"/assets/textures/")
+#define TEXTURE_PATH std::filesystem::path(ASSETS_PATH+"/textures")

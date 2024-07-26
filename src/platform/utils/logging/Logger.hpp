@@ -11,6 +11,7 @@
 #define LOG_INFO(...) SDLGame::Logger::getLogger()->info(__VA_ARGS__)
 #define LOG_WARN(...) SDLGame::Logger::getLogger()->warn(__VA_ARGS__)
 #define LOG_ERROR(...) SDLGame::Logger::getLogger()->error(__VA_ARGS__)
+#define LOG_CRITICAL(...) SDLGame::Logger::getLogger()->critical(__VA_ARGS__)
 
 namespace SDLGame
 {

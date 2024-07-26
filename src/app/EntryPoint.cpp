@@ -1,8 +1,10 @@
 #include <SDL_main.h>
+#include <cassert>
+#include <filesystem>
+
 #include "Application.hpp"
 #include "Logger.hpp"
-
-#include<cassert>
+#include "Paths.hpp"
 
 std::shared_ptr<SDLGame::Application> gameApp = gameApp->instance();
 

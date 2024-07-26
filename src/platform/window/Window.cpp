@@ -1,6 +1,8 @@
 #include "Window.hpp"
 #include "Logger.hpp"
 
+#include <stdio.h>
+
 namespace SDLGame 
 {
 	Window::Window() 
@@ -18,7 +20,7 @@ namespace SDLGame
 		mWindow = SDL_CreateWindow(title, x, y, w, h, flags);
 		if (mWindow == NULL)
 		{
-			LOG_ERROR("Could not create window!");
+			LOG_ERROR("Could not create window! SDL Error: {}", SDL_GetError());
 			destroy();
 		}
 		return mWindow != NULL && mRenderer->init(mWindow, SDL_RENDERER_ACCELERATED);
