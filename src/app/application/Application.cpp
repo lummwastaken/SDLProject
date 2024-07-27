@@ -41,13 +41,7 @@ namespace SDLGame
 
 	bool Application::initObjects()
 	{
-		if (!mWindow->init(
-			"Test Window", 
-			SDL_WINDOWPOS_UNDEFINED, 
-			SDL_WINDOWPOS_UNDEFINED, 
-			640, 480, 
-			0
-		))
+		if (!mWindow->init("Test Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0))
 		{
 			return false;
 		}
