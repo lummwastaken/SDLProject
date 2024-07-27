@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SDL_video.h>
-#include <memory>
 
 #include "Types.hpp"
 #include "Renderer.hpp"

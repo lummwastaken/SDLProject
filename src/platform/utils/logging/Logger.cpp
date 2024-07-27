@@ -1,5 +1,4 @@
 #include "Logger.hpp"
-#include <filesystem>
 
 namespace SDLGame
 {
