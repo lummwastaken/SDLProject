@@ -6,11 +6,11 @@ namespace SDLGame
 
 	void Logger::init()
 	{
-		std::remove("logs/latest.log");
+		std::remove("../logs/latest.log");
 		try
 		{
 			spdlog::set_pattern("%^[%T] [%n] [%l]: %v%$");
-			platformLogger = spdlog::basic_logger_mt("console", "logs/latest.log");
+			platformLogger = spdlog::basic_logger_mt("console", "../logs/latest.log");
 			platformLogger->set_level(spdlog::level::trace);
 		}
 		catch (const spdlog::spdlog_ex& ex)
