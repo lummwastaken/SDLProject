@@ -1,6 +1,4 @@
 #include <SDL_main.h>
-#include <cassert>
-#include <filesystem>
 
 #include "Application.hpp"
 #include "Logger.hpp"

@@ -14,5 +14,6 @@ set(GAME_HEADERS
 )
 
 add_library(PROJ_GAME ${GAME_SOURCES} ${GAME_HEADERS})
+target_precompile_headers(PROJ_GAME REUSE_FROM PROJ_PLATFORM)
 
 message(STATUS "Building game library - done")

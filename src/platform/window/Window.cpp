@@ -1,8 +1,6 @@
 #include "Window.hpp"
 #include "Logger.hpp"
 
-#include <stdio.h>
-
 namespace SDLGame 
 {
 	Window::Window() 
