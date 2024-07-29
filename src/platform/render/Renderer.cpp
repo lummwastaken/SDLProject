@@ -5,7 +5,11 @@ namespace SDLGame
 	bool Renderer::init(SDL_Window* win, u32 flags)
 	{
 		mRenderer = SDL_CreateRenderer(win, -1, flags);
-		if (mRenderer == NULL)
+		if (mRenderer != NULL)
+		{
+			LOG_TRACE("Successfully initialized Renderer");
+		}
+		else
 		{
 			LOG_ERROR("Could not create renderer! SDL Error: %s", SDL_GetError());
 			destroy();

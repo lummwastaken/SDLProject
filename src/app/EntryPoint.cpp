@@ -8,14 +8,14 @@ int main(int argc, char* argv[])
 {
 	if (!gameApp->initSubSystems())
 	{
-		LOG_ERROR("Could not initialize subsystems!");
+		LOG_CRASH("Could not initialize subsystems!");
 		return 0;
 	}
 	else 
 	{
 		if (!gameApp->initObjects())
 		{
-			LOG_ERROR("Could not initialize application!");
+			LOG_CRASH("Could not initialize application!");
 			return 0;
 		}
 	}
