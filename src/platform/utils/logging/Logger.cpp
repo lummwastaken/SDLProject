@@ -15,13 +15,14 @@ namespace SDLGame
 		}
 		catch (const spdlog::spdlog_ex& ex)
 		{
-			printf("Could not initialize log! Log error: %s\n", ex.what());
+			printf("Could not initialize Logger(s)! Log error: %s\n", ex.what());
 		}
 		LOG_TRACE("Successfully initialized Logger(s)");
 	}
 
 	void Logger::quit()
 	{
+		LOG_TRACE("Shutting down Logger(s)");
 		spdlog::shutdown();
 	}
 }
