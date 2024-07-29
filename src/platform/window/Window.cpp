@@ -15,7 +15,11 @@ namespace SDLGame
 	bool Window::init(const char* title, u32 x, u32 y, u16 w, u16 h, u32 flags)
 	{
 		mWindow = SDL_CreateWindow(title, x, y, w, h, flags);
-		if (mWindow == NULL)
+		if (mWindow != NULL)
+		{
+			LOG_TRACE("Successfully initialized Window");
+		}
+		else
 		{
 			LOG_ERROR("Could not create window! SDL Error: {}", SDL_GetError());
 			destroy();
