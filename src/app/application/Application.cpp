@@ -39,7 +39,7 @@ namespace SDLGame
 
 	bool Application::initObjects()
 	{
-		if (mWindow->init("Test Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0))
+		if (mainWindow->init("Test Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0))
 		{
 			return true;
 		}
@@ -64,14 +64,14 @@ namespace SDLGame
 					isRunning = false;
 				}
 			}
-			mWindow->render();
+			mainWindow->render();
 		}
 		shutdown();
 	}
 
 	void Application::shutdown()
 	{
-		mWindow->destroy();
+		mainWindow->destroy();
 
 		Logger::quit();
 		IMG_Quit();
