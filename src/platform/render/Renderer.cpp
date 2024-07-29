@@ -1,5 +1,4 @@
 #include "Renderer.hpp"
-#include "Logger.hpp"
 
 namespace SDLGame
 {
@@ -14,14 +13,10 @@ namespace SDLGame
 		return mRenderer != NULL;
 	}
 
-	void Renderer::renderFlush()
+	void Renderer::renderFrame()
 	{
 		SDL_RenderClear(mRenderer);
 		SDL_SetRenderDrawColor(mRenderer, 0xff, 0xff, 0xff, 0xff);
-	}
-
-	void Renderer::renderPresent()
-	{
 		SDL_RenderPresent(mRenderer);
 	}
 

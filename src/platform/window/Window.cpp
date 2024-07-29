@@ -1,5 +1,4 @@
 #include "Window.hpp"
-#include "Logger.hpp"
 
 namespace SDLGame 
 {
@@ -26,8 +25,7 @@ namespace SDLGame
 
 	void Window::render()
 	{
-		mRenderer->renderFlush();
-		mRenderer->renderPresent();
+		mRenderer->renderFrame();
 	}
 
 	void Window::destroy()

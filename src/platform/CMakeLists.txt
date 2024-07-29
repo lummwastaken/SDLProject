@@ -12,8 +12,6 @@ set(PLATFORM_SOURCES
 
 set(PLATFORM_HEADERS
 	"render/Renderer.hpp"
-	"utils/Paths.hpp"
-	"utils/Types.hpp"
 	"utils/logging/Logger.hpp"
 	"window/Window.hpp"
 )
@@ -41,6 +39,9 @@ target_precompile_headers(PROJ_PLATFORM PRIVATE
 	[["map"]]
 	[["unordered_set"]]
 	[["unordered_map"]]
+	[["utils/Types.hpp"]]
+	[["utils/Paths.hpp"]]
+	[["utils/logging/Logger.hpp"]]
 )
 
 message(STATUS "Building platform library - done")

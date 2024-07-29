@@ -2,8 +2,6 @@
 
 #include <SDL_render.h>
 
-#include "Types.hpp"
-
 namespace SDLGame
 {
 	class Renderer
@@ -16,8 +14,7 @@ namespace SDLGame
 
 		bool init(SDL_Window* win, u32 flags);
 
-		void renderFlush();
-		void renderPresent();
+		void renderFrame();
 
 		void destroy();
 	private:

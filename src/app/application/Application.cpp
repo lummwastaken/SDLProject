@@ -4,8 +4,6 @@
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 
-#include "Logger.hpp"
-
 namespace SDLGame
 {
 	bool Application::initSubSystems()
