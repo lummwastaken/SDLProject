@@ -2,7 +2,6 @@
 
 #include <SDL_video.h>
 
-#include "Types.hpp"
 #include "Renderer.hpp"
 
 namespace SDLGame 
