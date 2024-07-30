@@ -8,6 +8,7 @@ namespace SDLGame
 {
 	bool Application::init()
 	{
+
 		Logger::init();
 		bool success = true;
 		// Initialize Subsystems
@@ -29,6 +30,9 @@ namespace SDLGame
 				{
 					LOG_CRASH("Could not initialize SDL_mixer! SDL_mixer Error: {}", Mix_GetError());
 					success = false;
+				}
+				else
+				{
 				}
 			}
 		}

@@ -10,16 +10,12 @@ namespace SDLGame
 	public:
 		Window();
 
-		virtual ~Window();
+		virtual ~Window() = 0;
 
 		virtual void init() = 0;
-
-		virtual void render() = 0;
 
 		virtual void cleanup() = 0;
 
 	private:
-		SDL_Window* mWindow;
-		SDL_Renderer* mRenderer;
 	};
 }

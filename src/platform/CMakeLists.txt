@@ -7,6 +7,7 @@ include_directories(
 set(PLATFORM_SOURCES
 	"render/texture/Texture.cpp"
 	"utils/logging/Logger.cpp"
+	"window/RenderWindow.cpp"
 )
 
 set(PLATFORM_HEADERS
@@ -14,6 +15,7 @@ set(PLATFORM_HEADERS
 	"render/texture/Texture.hpp"
 	"utils/logging/Logger.hpp"
 	"window/Window.hpp"
+	"window/RenderWindow.hpp"
 )
 
 add_library(PROJ_PLATFORM ${PLATFORM_SOURCES} ${PLATFORM_HEADERS})

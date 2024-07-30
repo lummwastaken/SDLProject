@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Window.hpp"
+#include "RenderWindow.hpp"
 
 namespace SDLGame
 {
@@ -23,7 +23,9 @@ namespace SDLGame
 		void runLoop();
 
 	private:
-		Application() {}
+		Application()
+		{
+		}
 
 		void shutdown();
 	};
