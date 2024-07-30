@@ -8,11 +8,13 @@ namespace SDLGame
 	class Window 
 	{
 	public:
-		Window();
+		Window() {}
 
-		virtual ~Window() = 0;
+		~Window() {}
 
-		virtual void init() = 0;
+		virtual void init(const char* title, int w, int h) = 0;
+
+		virtual void update() = 0;
 
 		virtual void cleanup() = 0;
 

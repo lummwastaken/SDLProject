@@ -8,7 +8,6 @@ namespace SDLGame
 {
 	bool Application::init()
 	{
-
 		Logger::init();
 		bool success = true;
 		// Initialize Subsystems
@@ -33,6 +32,7 @@ namespace SDLGame
 				}
 				else
 				{
+					mainWin->init("Test Window", 640, 480);
 				}
 			}
 		}
@@ -59,6 +59,7 @@ namespace SDLGame
 				{
 					isRunning = false;
 				}
+				mainWin->update();
 			}
 		}
 		shutdown();

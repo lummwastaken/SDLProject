@@ -28,5 +28,7 @@ namespace SDLGame
 		}
 
 		void shutdown();
+
+		std::unique_ptr<RenderWindow> mainWin = std::make_unique<RenderWindow>();
 	};
 }

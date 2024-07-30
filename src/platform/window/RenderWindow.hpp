@@ -13,11 +13,13 @@ namespace SDLGame
 		{
 		}
 
-		~RenderWindow() override { cleanup(); }
+		~RenderWindow() { cleanup(); }
 
-		void RenderWindow::init(const char* title, int w, int h);
+		void init(const char* title, int w, int h) override;
 
-		void RenderWindow::cleanup();
+		void update() override;
+
+		void cleanup() override;
 	private:
 		SDL_Window* mWindow;
 		SDL_Renderer* mRenderer;
