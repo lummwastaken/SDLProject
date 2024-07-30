@@ -8,15 +8,7 @@ int main(int argc, char* argv[])
 {
 	if (gameApp->init())
 	{
-		if (gameApp->loadMedia())
-		{
-			gameApp->runLoop();
-		}
-		else
-		{
-			LOG_CRASH("Could not load required media!");
-			return 0;
-		}
+		gameApp->runLoop();
 	}
 	else
 	{
