@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Window.hpp"
+#include "RenderWindow.hpp"
 
 namespace SDLGame
 {
@@ -23,10 +23,12 @@ namespace SDLGame
 		void runLoop();
 
 	private:
-		Application() {}
+		Application()
+		{
+		}
 
 		void shutdown();
 
-		std::unique_ptr<Window> mainWindow = std::make_unique<Window>();
+		std::unique_ptr<RenderWindow> mainWin = std::make_unique<RenderWindow>();
 	};
 }

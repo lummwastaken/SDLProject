@@ -1,26 +1,23 @@
 #pragma once
 
 #include <SDL_video.h>
-
-#include "Renderer.hpp"
+#include <SDL_render.h>
 
 namespace SDLGame 
 {
 	class Window 
 	{
 	public:
-		Window();
-		~Window();
+		Window() {}
 
-		bool init (const char* title, u32 x, u32 y, u16 w, u16 h, u32 flags);
+		~Window() {}
 
-		void render();
+		virtual void init(const char* title, int w, int h) = 0;
 
-		void destroy();
+		virtual void update() = 0;
+
+		virtual void cleanup() = 0;
 
 	private:
-		SDL_Window* mWindow;
-
-		std::unique_ptr<Renderer> mRenderer = std::make_unique<Renderer>();
 	};
 }
