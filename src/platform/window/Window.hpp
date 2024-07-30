@@ -18,7 +18,6 @@ namespace SDLGame
 
 		void destroy();
 
-		SDL_Window* getWindow() { return mWindow; }
 	private:
 		SDL_Window* mWindow;
 
