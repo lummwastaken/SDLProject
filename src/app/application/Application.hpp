@@ -16,9 +16,7 @@ namespace SDLGame
 			return appPtr;
 		}
 
-		bool initSubSystems();
-
-		bool initObjects();
+		bool init();
 
 		void runLoop();
 

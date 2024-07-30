@@ -6,15 +6,15 @@
 
 namespace SDLGame
 {
-	bool Application::initSubSystems()
+	bool Application::init()
 	{
 		Logger::init();
 		bool success = true;
-		if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
+		// Initialize Subsystems
+		if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_EVENTS) < 0)
 		{
 			LOG_CRASH("Could not initialize SDL! SDL Error: {}", SDL_GetError());
 			success = false;
-			shutdown();
 		}
 		else
 		{
@@ -22,7 +22,6 @@ namespace SDLGame
 			{
 				LOG_CRASH("Could not initialize SDL_image! SDL_image Error: {}", IMG_GetError());
 				success = false;
-				shutdown();
 			}
 			else
 			{
@@ -30,23 +29,15 @@ namespace SDLGame
 				{
 					LOG_CRASH("Could not initialize SDL_mixer! SDL_mixer Error: {}", Mix_GetError());
 					success = false;
-					shutdown();
 				}
 			}
 		}
+		// Initialize Objects
+		if (!mainWindow->init("Test Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0))
+		{
+			success = false;
+		}
 		return success;
-	}
-
-	bool Application::initObjects()
-	{
-		if (mainWindow->init("Test Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
 	}
 
 	void Application::runLoop()

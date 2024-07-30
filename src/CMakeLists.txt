@@ -3,6 +3,8 @@ project(${CMAKE_PROJECT_NAME})
 set(PLATFORM_INCLUDES
 	"${PROJECT_SOURCE_DIR}/platform/"
 	"${PROJECT_SOURCE_DIR}/platform/render/"
+	"${PROJECT_SOURCE_DIR}/platform/render/sprite"
+	"${PROJECT_SOURCE_DIR}/platform/render/texture"
 	"${PROJECT_SOURCE_DIR}/platform/utils/"
 	"${PROJECT_SOURCE_DIR}/platform/utils/logging/"
 	"${PROJECT_SOURCE_DIR}/platform/window/"

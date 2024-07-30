@@ -6,18 +6,14 @@ std::shared_ptr<SDLGame::Application> gameApp = gameApp->instance();
 
 int main(int argc, char* argv[]) 
 {
-	if (!gameApp->initSubSystems())
+	if (gameApp->init())
 	{
-		LOG_CRASH("Could not initialize subsystems!");
-		return 0;
+
 	}
-	else 
+	else
 	{
-		if (!gameApp->initObjects())
-		{
-			LOG_CRASH("Could not initialize application!");
-			return 0;
-		}
+		LOG_CRASH("Could not initialize the application!");
+		return 0;
 	}
 	gameApp->runLoop();
 	return 0;

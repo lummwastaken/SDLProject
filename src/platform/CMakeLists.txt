@@ -6,12 +6,15 @@ include_directories(
 
 set(PLATFORM_SOURCES
 	"render/Renderer.cpp"
+	"render/texture/Texture.cpp"
 	"utils/logging/Logger.cpp"
 	"window/Window.cpp"
 )
 
 set(PLATFORM_HEADERS
 	"render/Renderer.hpp"
+	"render/sprite/ISprite.hpp"
+	"render/texture/Texture.hpp"
 	"utils/logging/Logger.hpp"
 	"window/Window.hpp"
 )

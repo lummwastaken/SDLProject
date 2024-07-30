@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SDL_render.h>
+#include "Texture.hpp"
 
 namespace SDLGame
 {
@@ -17,7 +18,10 @@ namespace SDLGame
 		void renderFrame();
 
 		void destroy();
+
+		SDL_Renderer* getRenderer() { return mRenderer; }
 	private:
 		SDL_Renderer* mRenderer;
+		Texture* currentTex;
 	};
 }
