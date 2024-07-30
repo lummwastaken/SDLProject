@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Window.hpp"
+#include "Texture.hpp"
 
 namespace SDLGame
 {
@@ -20,8 +21,13 @@ namespace SDLGame
 		void update() override;
 
 		void cleanup() override;
+
+		SDL_Window* getWindow() { return mWindow; }
+		SDL_Renderer* getRenderer() { return mRenderer; }
+
 	private:
 		SDL_Window* mWindow;
 		SDL_Renderer* mRenderer;
+		Texture mTexture;
 	};
 }

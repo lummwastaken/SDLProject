@@ -21,6 +21,10 @@ namespace SDLGame
 		void setBlend(SDL_BlendMode blend) { SDL_SetTextureBlendMode(mTexture, blend); }
 		void setAlpha(u8 alpha) { SDL_SetTextureAlphaMod(mTexture, alpha); }
 
+		bool loadFromFile(SDL_Renderer* rend, str path);
+
+		void render(SDL_Renderer* rend, int x = 0, int y = 0, SDL_Rect* clip = NULL, f64 angle = 0.0, SDL_Point* pivot = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
+
 		void free();
 
 		int getWidth() { return mWidth; }

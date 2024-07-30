@@ -42,7 +42,6 @@ target_precompile_headers(PROJ_PLATFORM PRIVATE
 	[["unordered_set"]]
 	[["unordered_map"]]
 	[["utils/Types.hpp"]]
-	[["utils/Paths.hpp"]]
 	[["utils/logging/Logger.hpp"]]
 )
 
