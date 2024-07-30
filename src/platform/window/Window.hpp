@@ -5,6 +5,12 @@
 
 namespace SDLGame 
 {
+	struct winData
+	{
+		const char* title;
+		u16 width, height;
+	};
+
 	class Window 
 	{
 	public:
@@ -12,7 +18,7 @@ namespace SDLGame
 
 		~Window() {}
 
-		virtual void init(const char* title, int w, int h) = 0;
+		virtual void init(const char* title, u16 w, u16 h) = 0;
 
 		virtual void update() = 0;
 

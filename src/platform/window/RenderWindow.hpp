@@ -16,7 +16,7 @@ namespace SDLGame
 
 		~RenderWindow() { cleanup(); }
 
-		void init(const char* title, int w, int h) override;
+		void init(const char* title, u16 w, u16 h) override;
 
 		void update() override;
 

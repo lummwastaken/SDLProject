@@ -39,12 +39,6 @@ namespace SDLGame
 		return success;
 	}
 
-	bool Application::loadMedia()
-	{
-		bool success = true;
-		return success;
-	}
-
 	void Application::runLoop()
 	{
 		bool isRunning = true;
