@@ -1,8 +1,7 @@
 #pragma once
 
 #include <SDL_video.h>
-
-#include "Renderer.hpp"
+#include <SDL_render.h>
 
 namespace SDLGame 
 {
@@ -12,15 +11,14 @@ namespace SDLGame
 		Window();
 		~Window();
 
-		bool init (const char* title, u16 w, u16 h);
+		virtual void init (const char* title, u16 w, u16 h);
 
-		void render();
+		virtual void render();
 
-		void destroy();
+		virtual void cleanup();
 
 	private:
 		SDL_Window* mWindow;
-
-		std::unique_ptr<Renderer> mRenderer = std::make_unique<Renderer>();
+		SDL_Renderer* mRenderer;
 	};
 }

@@ -18,24 +18,19 @@ namespace SDLGame
 		}
 		else
 		{
-			if (!IMG_Init(IMG_INIT_PNG))
+			if (!(IMG_Init(IMG_INIT_PNG)))
 			{
 				LOG_CRASH("Could not initialize SDL_image! SDL_image Error: {}", IMG_GetError());
 				success = false;
 			}
 			else
 			{
-				if (!Mix_Init(MIX_INIT_OGG))
+				if (!(Mix_Init(MIX_INIT_OGG)))
 				{
 					LOG_CRASH("Could not initialize SDL_mixer! SDL_mixer Error: {}", Mix_GetError());
 					success = false;
 				}
 			}
-		}
-		// Initialize Objects
-		if (!mainWindow->init("Test Window", 640, 480))
-		{
-			success = false;
 		}
 		return success;
 	}
@@ -61,15 +56,12 @@ namespace SDLGame
 					isRunning = false;
 				}
 			}
-			mainWindow->render();
 		}
 		shutdown();
 	}
 
 	void Application::shutdown()
 	{
-		mainWindow->destroy();
-
 		Logger::quit();
 		IMG_Quit();
 		Mix_Quit();
