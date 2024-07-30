@@ -12,6 +12,7 @@ namespace SDLGame
 			if (mRenderer != NULL)
 			{
 				LOG_TRACE("Successfully initialized Renderer!");
+				mTexture.loadFromFile(mRenderer, "../resources/assets/textures/atlas.png");
 			}
 			else
 			{
@@ -26,13 +27,15 @@ namespace SDLGame
 
 	void RenderWindow::update()
 	{
-		SDL_SetRenderDrawColor(mRenderer, 0xff, 0xff, 0xff, 0xff);
 		SDL_RenderClear(mRenderer);
+		SDL_SetRenderDrawColor(mRenderer, 0xff, 0xff, 0xff, 0xff);
+		mTexture.render(mRenderer, (640 - mTexture.getWidth()) / 2, (480 - mTexture.getHeight()) / 2);
 		SDL_RenderPresent(mRenderer);
 	}
 
 	void RenderWindow::cleanup()
 	{
+		mTexture.free();
 		SDL_DestroyRenderer(mRenderer);
 		mRenderer = NULL;
 		SDL_DestroyWindow(mWindow);
