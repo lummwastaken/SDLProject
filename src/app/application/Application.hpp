@@ -18,6 +18,8 @@ namespace SDLGame
 
 		bool init();
 
+		bool loadMedia();
+
 		void runLoop();
 
 	private:

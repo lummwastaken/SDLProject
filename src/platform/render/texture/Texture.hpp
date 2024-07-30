@@ -21,10 +21,6 @@ namespace SDLGame
 		void setBlend(SDL_BlendMode blend) { SDL_SetTextureBlendMode(mTexture, blend); }
 		void setAlpha(u8 alpha) { SDL_SetTextureAlphaMod(mTexture, alpha); }
 
-		void loadFromFile(str path);
-
-		void render(SDL_Renderer* rend);
-
 		void free();
 
 		int getWidth() { return mWidth; }

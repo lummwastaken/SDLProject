@@ -22,6 +22,5 @@ namespace SDLGame
 		SDL_Renderer* getRenderer() { return mRenderer; }
 	private:
 		SDL_Renderer* mRenderer;
-		Texture* currentTex;
 	};
 }
