@@ -33,6 +33,7 @@ namespace SDLGame
 				else
 				{
 					mainWin->init("Test Window", 640, 480);
+					LOG_INFO("Created window with resolution: {}x{} and title: {}", mainWin->getWidth(), mainWin->getHeight(), mainWin->getTitle());
 				}
 			}
 		}

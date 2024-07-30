@@ -28,6 +28,5 @@ namespace SDLGame
 	private:
 		SDL_Window* mWindow;
 		SDL_Renderer* mRenderer;
-		Texture mTexture;
 	};
 }
