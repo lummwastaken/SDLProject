@@ -12,7 +12,7 @@ namespace SDLGame
 		Window();
 		~Window();
 
-		bool init (const char* title, u32 x, u32 y, u16 w, u16 h, u32 flags);
+		bool init (const char* title, u16 w, u16 h);
 
 		void render();
 

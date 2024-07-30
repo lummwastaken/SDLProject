@@ -11,21 +11,21 @@ namespace SDLGame
 		Logger::init();
 		bool success = true;
 		// Initialize Subsystems
-		if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_EVENTS) < 0)
+		if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_EVENTS) > 0)
 		{
 			LOG_CRASH("Could not initialize SDL! SDL Error: {}", SDL_GetError());
 			success = false;
 		}
 		else
 		{
-			if (IMG_Init(IMG_INIT_PNG) < 0)
+			if (!IMG_Init(IMG_INIT_PNG))
 			{
 				LOG_CRASH("Could not initialize SDL_image! SDL_image Error: {}", IMG_GetError());
 				success = false;
 			}
 			else
 			{
-				if (Mix_Init(MIX_INIT_OGG) < 0)
+				if (!Mix_Init(MIX_INIT_OGG))
 				{
 					LOG_CRASH("Could not initialize SDL_mixer! SDL_mixer Error: {}", Mix_GetError());
 					success = false;
@@ -33,7 +33,7 @@ namespace SDLGame
 			}
 		}
 		// Initialize Objects
-		if (!mainWindow->init("Test Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0))
+		if (!mainWindow->init("Test Window", 640, 480))
 		{
 			success = false;
 		}

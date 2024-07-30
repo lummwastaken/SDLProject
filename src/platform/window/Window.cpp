@@ -12,9 +12,9 @@ namespace SDLGame
 		destroy();
 	}
 
-	bool Window::init(const char* title, u32 x, u32 y, u16 w, u16 h, u32 flags)
+	bool Window::init(const char* title, u16 w, u16 h)
 	{
-		mWindow = SDL_CreateWindow(title, x, y, w, h, flags);
+		mWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, w, h, 0);
 		if (mWindow != NULL)
 		{
 			LOG_TRACE("Successfully initialized Window");
