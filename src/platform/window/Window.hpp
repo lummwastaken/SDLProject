@@ -5,16 +5,12 @@
 
 namespace SDLGame 
 {
-	struct winData
-	{
-		const char* title;
-		u16 width, height;
-	};
-
 	class Window 
 	{
 	public:
-		Window() {}
+		Window() {
+			mData = { NULL, NULL, NULL };
+		}
 
 		~Window() {}
 
@@ -24,6 +20,17 @@ namespace SDLGame
 
 		virtual void cleanup() = 0;
 
-	private:
+		u16 getWidth() { return mData.width; }
+		u16 getHeight() { return mData.height; }
+		const char* getTitle() { return mData.title; }
+
+	protected:
+		struct winData
+		{
+			const char* title;
+			u16 width, height;
+		};
+
+		winData mData;
 	};
 }
