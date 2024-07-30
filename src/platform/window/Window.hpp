@@ -9,13 +9,14 @@ namespace SDLGame
 	{
 	public:
 		Window();
-		~Window();
 
-		virtual void init (const char* title, u16 w, u16 h);
+		virtual ~Window();
 
-		virtual void render();
+		virtual void init() = 0;
 
-		virtual void cleanup();
+		virtual void render() = 0;
+
+		virtual void cleanup() = 0;
 
 	private:
 		SDL_Window* mWindow;
