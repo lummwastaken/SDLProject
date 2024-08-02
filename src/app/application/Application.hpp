@@ -2,6 +2,9 @@
 
 #include "RenderWindow.hpp"
 
+#define INIT SDLGame::Application::instance()->init();
+#define RUNLOOP SDLGame::Application::instance()->runLoop();
+
 namespace SDLGame
 {
 	class Application
@@ -16,9 +19,7 @@ namespace SDLGame
 			return appPtr;
 		}
 
-		bool init();
-
-		bool loadMedia();
+		void init();
 
 		void runLoop();
 

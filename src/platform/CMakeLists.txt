@@ -11,9 +11,7 @@ set(PLATFORM_SOURCES
 )
 
 set(PLATFORM_HEADERS
-	"render/sprite/ISprite.hpp"
 	"render/texture/Texture.hpp"
-	"utils/logging/Logger.hpp"
 	"window/Window.hpp"
 	"window/RenderWindow.hpp"
 )
@@ -41,6 +39,7 @@ target_precompile_headers(PROJ_PLATFORM PRIVATE
 	[["map"]]
 	[["unordered_set"]]
 	[["unordered_map"]]
+	# Custom Headers
 	[["utils/Types.hpp"]]
 	[["utils/logging/Logger.hpp"]]
 )

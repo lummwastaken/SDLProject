@@ -5,7 +5,11 @@ namespace SDLGame
 	void RenderWindow::init(const char* title, u16 w, u16 h)
 	{
 		mData = { title, w, h };
-		mWindow = SDL_CreateWindow(mData.title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, mData.width, mData.height, 0);
+		mWindow = SDL_CreateWindow(
+			mData.title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 
+			mData.width, mData.height, 
+			0
+		);
 		if (mWindow != NULL)
 		{
 			LOG_TRACE("Successfully initialized Window!");
