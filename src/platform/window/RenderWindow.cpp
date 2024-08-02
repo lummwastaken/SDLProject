@@ -32,7 +32,7 @@ namespace SDLGame
 	void RenderWindow::renderFlush()
 	{
 		SDL_RenderClear(mRenderer);
-		SDL_SetRenderDrawColor(mRenderer, 0xff, 0xff, 0xff, 0xff);
+		SDL_SetRenderDrawColor(mRenderer, 0, 0, 0, 0);
 	}
 
 	void RenderWindow::renderPresent()
