@@ -28,7 +28,7 @@ namespace SDLGame
 				}
 				else
 				{
-					mainWin->init("Test Window", 640, 480);
+					mainWin->init("Test Window", SCREEN_WIDTH, SCREEN_HEIGHT);
 					LOG_INFO("Created window with resolution: {}x{} and title: {}", mainWin->getWidth(), mainWin->getHeight(), mainWin->getTitle());
 				}
 			}

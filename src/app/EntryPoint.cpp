@@ -4,7 +4,7 @@
 
 int main(int argc, char* argv[]) 
 {
-	INIT;
-	RUNLOOP;
+	APP_INIT;
+	APP_RUNLOOP;
 	return 0;
 } 

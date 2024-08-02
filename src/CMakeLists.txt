@@ -6,6 +6,7 @@ set(PLATFORM_INCLUDES
 	"${PROJECT_SOURCE_DIR}/platform/render/texture"
 	"${PROJECT_SOURCE_DIR}/platform/utils/"
 	"${PROJECT_SOURCE_DIR}/platform/utils/logging/"
+	"${PROJECT_SOURCE_DIR}/platform/utils/time/"
 	"${PROJECT_SOURCE_DIR}/platform/window/"
 )
 
