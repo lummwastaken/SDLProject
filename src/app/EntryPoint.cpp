@@ -6,5 +6,6 @@ int main(int argc, char* argv[])
 {
 	APP_INIT;
 	APP_RUNLOOP;
+	APP_SHUTDOWN;
 	return 0;
 } 

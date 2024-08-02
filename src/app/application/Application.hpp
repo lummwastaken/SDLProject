@@ -4,6 +4,7 @@
 
 #define APP_INIT SDLGame::Application::instance()->init();
 #define APP_RUNLOOP SDLGame::Application::instance()->runLoop();
+#define APP_SHUTDOWN SDLGame::Application::instance()->shutdown();
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -26,12 +27,12 @@ namespace SDLGame
 
 		void runLoop();
 
-	private:
-		Application()
-		{
-		}
-
 		void shutdown();
+
+	private:
+		Application() {}
+
+		Texture mTex;
 
 		std::unique_ptr<RenderWindow> mainWin = std::make_unique<RenderWindow>();
 	};

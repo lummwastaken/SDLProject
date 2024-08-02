@@ -20,6 +20,10 @@ namespace SDLGame
 
 		void update() override;
 
+		void renderFlush();
+
+		void renderPresent();
+
 		void cleanup() override;
 
 		SDL_Window* getWindow() { return mWindow; }
