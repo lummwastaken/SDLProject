@@ -42,14 +42,14 @@ namespace SDLGame
 		return mTexture != NULL;
 	}
 
-	void Texture::render(SDL_Renderer* rend, int x, int y, SDL_Rect* clip, f64 angle, SDL_Point* pivot, SDL_RendererFlip flip)
+	void Texture::render(SDL_Renderer* rend, int x, int y, SDL_Rect* clip, f64 angle, f64 scale, SDL_Point* pivot, SDL_RendererFlip flip)
 	{
-		SDL_Rect renderQuad = { x, y, mWidth, mHeight };
+		SDL_Rect renderQuad = { x, y, mWidth, mHeight};
 
-		if (clip != NULL)
+		if (clip != NULL) // scale might mess up texture atlases, but I'd like to find out.
 		{
-			renderQuad.w = clip->w;
-			renderQuad.h = clip->h;
+			renderQuad.w = clip->w * scale;
+			renderQuad.h = clip->h * scale;
 		}
 
 		if (SDL_RenderCopyEx(rend, mTexture, clip, &renderQuad, angle, pivot, flip) < 0)

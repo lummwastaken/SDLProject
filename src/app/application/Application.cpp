@@ -6,29 +6,25 @@
 
 namespace SDLGame
 {
-	bool Application::init()
+	void Application::init()
 	{
 		Logger::init();
-		bool success = true;
-		// Initialize Subsystems
+
 		if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_EVENTS) > 0)
 		{
 			LOG_CRASH("Could not initialize SDL! SDL Error: {}", SDL_GetError());
-			success = false;
 		}
 		else
 		{
 			if (!(IMG_Init(IMG_INIT_PNG)))
 			{
 				LOG_CRASH("Could not initialize SDL_image! SDL_image Error: {}", IMG_GetError());
-				success = false;
 			}
 			else
 			{
 				if (!(Mix_Init(MIX_INIT_OGG)))
 				{
 					LOG_CRASH("Could not initialize SDL_mixer! SDL_mixer Error: {}", Mix_GetError());
-					success = false;
 				}
 				else
 				{
@@ -37,7 +33,6 @@ namespace SDLGame
 				}
 			}
 		}
-		return success;
 	}
 
 	void Application::runLoop()

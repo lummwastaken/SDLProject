@@ -4,9 +4,8 @@
 
 namespace SDLGame
 {
-	class Texture
+	class Texture // contains an SDL_Texture, and methods to modify it
 	{
-		// Texture that is loaded into memory, possibly rendered
 	public:
 		Texture() : 
 			mTexture(NULL),
@@ -23,7 +22,7 @@ namespace SDLGame
 
 		bool loadFromFile(SDL_Renderer* rend, str path);
 
-		void render(SDL_Renderer* rend, int x = 0, int y = 0, SDL_Rect* clip = NULL, f64 angle = 0.0, SDL_Point* pivot = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
+		void render(SDL_Renderer* rend, int x = 0, int y = 0, SDL_Rect* clip = NULL, f64 angle = 0.0, f64 scale = 1.0, SDL_Point* pivot = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
 		void free();
 
