@@ -4,6 +4,8 @@
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 
+#include "Timer.hpp"
+
 namespace SDLGame
 {
 	void Application::init()
@@ -33,6 +35,7 @@ namespace SDLGame
 				}
 			}
 		}
+		mTex.loadFromFile(mainWin->getRenderer(), "../resources/assets/textures/atlas.png");
 	}
 
 	void Application::runLoop()
@@ -40,6 +43,9 @@ namespace SDLGame
 		bool isRunning = true;
 
 		SDL_Event event;
+
+		Timer inputTimer;
+		inputTimer.start();
 
 		while (isRunning)
 		{
@@ -49,10 +55,35 @@ namespace SDLGame
 				{
 					isRunning = false;
 				}
-				mainWin->update();
+				else if (event.type == SDL_KEYDOWN)
+				{
+					switch (event.key.keysym.sym)
+					{
+					case SDLK_w:
+						LOG_INFO("Recieved input 'W' after {} ticks!", inputTimer.getTicks());
+						break;
+					case SDLK_a:
+						LOG_INFO("Recieved input 'A' after {} ticks!", inputTimer.getTicks());
+						break;
+					case SDLK_s:
+						LOG_INFO("Recieved input 'S' after {} ticks!", inputTimer.getTicks());
+						break;
+					case SDLK_d:
+						LOG_INFO("Recieved input 'D' after {} ticks!", inputTimer.getTicks());
+						break;
+					default:
+						break;
+					}
+				}
 			}
+			mainWin->renderFlush();
+			mTex.render(
+				mainWin->getRenderer(),
+				(SCREEN_WIDTH - mTex.getWidth()) / 2,
+				(SCREEN_HEIGHT - mTex.getHeight()) / 2
+				);
+			mainWin->renderPresent();
 		}
-		shutdown();
 	}
 
 	void Application::shutdown()

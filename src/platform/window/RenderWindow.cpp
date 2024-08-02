@@ -29,11 +29,20 @@ namespace SDLGame
 		}
 	}
 
-	void RenderWindow::update()
+	void RenderWindow::renderFlush()
 	{
 		SDL_RenderClear(mRenderer);
 		SDL_SetRenderDrawColor(mRenderer, 0xff, 0xff, 0xff, 0xff);
+	}
+
+	void RenderWindow::renderPresent()
+	{
 		SDL_RenderPresent(mRenderer);
+	}
+
+	void RenderWindow::update()
+	{
+
 	}
 
 	void RenderWindow::cleanup()
