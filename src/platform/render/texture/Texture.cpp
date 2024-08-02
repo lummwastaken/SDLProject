@@ -20,7 +20,7 @@ namespace SDLGame
 		SDL_Surface* loadSurface = IMG_Load(path.c_str());
 		if (loadSurface != NULL)
 		{
-			SDL_SetColorKey(loadSurface, SDL_TRUE, SDL_MapRGB(loadSurface->format, 0xff, 0xff, 0xff));
+			SDL_SetColorKey(loadSurface, SDL_TRUE, SDL_MapRGB(loadSurface->format, 0xFF, 0, 0xFF));
 
 			mTexture = SDL_CreateTextureFromSurface(rend, loadSurface);
 			if (mTexture != NULL)
