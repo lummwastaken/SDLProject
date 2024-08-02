@@ -2,8 +2,11 @@
 
 #include "RenderWindow.hpp"
 
-#define INIT SDLGame::Application::instance()->init();
-#define RUNLOOP SDLGame::Application::instance()->runLoop();
+#define APP_INIT SDLGame::Application::instance()->init();
+#define APP_RUNLOOP SDLGame::Application::instance()->runLoop();
+
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 480;
 
 namespace SDLGame
 {
