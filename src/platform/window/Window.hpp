@@ -12,8 +12,6 @@ namespace SDLGame
 			mData = { NULL, NULL, NULL };
 		}
 
-		~Window() {}
-
 		virtual void init(const char* title, u16 w, u16 h) = 0;
 
 		virtual void update() = 0;

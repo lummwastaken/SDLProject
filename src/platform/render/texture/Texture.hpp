@@ -4,7 +4,7 @@
 
 namespace SDLGame
 {
-	class Texture // contains an SDL_Texture, and methods to modify it
+	class Texture
 	{
 	public:
 		Texture() : 
