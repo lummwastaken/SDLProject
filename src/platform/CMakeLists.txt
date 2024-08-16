@@ -14,7 +14,6 @@ set(PLATFORM_SOURCES
 set(PLATFORM_HEADERS
 	"render/texture/Texture.hpp"
 	"utils/time/Timer.hpp"
-	"utils/Paths.hpp"
 	"window/Window.hpp"
 	"window/RenderWindow.hpp"
 )

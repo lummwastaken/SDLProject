@@ -3,6 +3,7 @@
 #include "RenderWindow.hpp"
 
 #define APP_INIT SDLGame::Application::instance()->init();
+#define APP_LOAD SDLGame::Application::instance()->loadResources();
 #define APP_RUNLOOP SDLGame::Application::instance()->runLoop();
 #define APP_SHUTDOWN SDLGame::Application::instance()->shutdown();
 
@@ -24,6 +25,8 @@ namespace SDLGame
 		}
 
 		void init();
+
+		void loadResources();
 
 		void runLoop();
 

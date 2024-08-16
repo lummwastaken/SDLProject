@@ -35,7 +35,11 @@ namespace SDLGame
 				}
 			}
 		}
-		mTex.loadFromFile(mainWin->getRenderer(), "../resources/assets/textures/atlas.png");
+	}
+
+	void Application::loadResources()
+	{
+		mTex.loadFromFile(mainWin->getRenderer(), "../resources/assets/textures/water.png");
 	}
 
 	void Application::runLoop()
