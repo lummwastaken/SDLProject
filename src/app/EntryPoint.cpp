@@ -4,9 +4,13 @@
 
 int main(int argc, char* argv[]) 
 {
-	APP_INIT;
-	APP_LOAD;
-	APP_RUNLOOP;
-	APP_SHUTDOWN;
+	std::shared_ptr<SDLGame::Application> mainApp = SDLGame::Application::instance();
+
+	if (mainApp->init())
+	{
+		mainApp->runLoop();
+	}
+	mainApp->shutdown();
+
 	return 0;
 } 

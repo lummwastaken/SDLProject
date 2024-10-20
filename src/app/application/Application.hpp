@@ -1,14 +1,6 @@
 #pragma once
 
-#include "RenderWindow.hpp"
-
-#define APP_INIT SDLGame::Application::instance()->init();
-#define APP_LOAD SDLGame::Application::instance()->loadResources();
-#define APP_RUNLOOP SDLGame::Application::instance()->runLoop();
-#define APP_SHUTDOWN SDLGame::Application::instance()->shutdown();
-
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+#include "window/Window.hpp"
 
 namespace SDLGame
 {
@@ -24,9 +16,7 @@ namespace SDLGame
 			return appPtr;
 		}
 
-		void init();
-
-		void loadResources();
+		bool init();
 
 		void runLoop();
 
@@ -35,8 +25,6 @@ namespace SDLGame
 	private:
 		Application() {}
 
-		Texture mTex;
-
-		std::unique_ptr<RenderWindow> mainWin = std::make_unique<RenderWindow>();
+		std::unique_ptr<Window> mWindow = std::make_unique<Window>();
 	};
 }
