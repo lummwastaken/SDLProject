@@ -9,10 +9,12 @@ include_directories(
 set(APP_SOURCES
 	"EntryPoint.cpp"
 	"application/Application.cpp"
+	"window/Window.cpp"
 )
 
 set(APP_HEADERS
 	"application/Application.hpp"
+	"window/Window.hpp"
 )
 
 add_executable(${CMAKE_PROJECT_NAME} WIN32
