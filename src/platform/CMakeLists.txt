@@ -5,14 +5,11 @@ include_directories(
 )
 
 set(PLATFORM_SOURCES
-	"render/texture/Texture.cpp"
 	"utils/logging/Logger.cpp"
-	"utils/time/Timer.cpp"
 )
 
 set(PLATFORM_HEADERS
-	"render/texture/Texture.hpp"
-	"utils/time/Timer.hpp"
+	"utils/logging/Logger.hpp"
 )
 
 add_library(PROJ_PLATFORM ${PLATFORM_SOURCES} ${PLATFORM_HEADERS})
