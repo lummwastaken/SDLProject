@@ -2,19 +2,31 @@
 
 #include "SDL_video.h"
 #include "SDL_render.h"
+#include "SDL_events.h"
 
 namespace SDLGame 
 {
+	struct WindowData
+	{
+		const char* title = "Test Window";
+		u32 width = 640, height = 480;
+		u32 flags = 0;
+	};
+
 	class Window
 	{
 	public:
-		Window();
+		Window(const WindowData& data);
 
-		bool init(const char* title, u32 width, u32 height);
+		bool init();
+
+		void handleEvent(const SDL_Event& e);
+
+		void render();
 
 		void shutdown();
 	private:
 		SDL_Window* mWindow;
-		SDL_Renderer* mRenderer;
+		WindowData mData;
 	};
 }

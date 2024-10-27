@@ -4,14 +4,14 @@ namespace SDLGame
 {
 	std::shared_ptr<spdlog::logger> Logger::platformLogger;
 
-	void Logger::init()
+	void Logger::init(spdlog::level::level_enum level)
 	{
 		std::remove("../logs/latest.log");
 		try
 		{
 			spdlog::set_pattern("%^[%T] [%n] [%l]: %v%$");
 			platformLogger = spdlog::basic_logger_mt("console", "../logs/latest.log");
-			platformLogger->set_level(spdlog::level::trace);
+			platformLogger->set_level(level);
 		}
 		catch (const spdlog::spdlog_ex& ex)
 		{

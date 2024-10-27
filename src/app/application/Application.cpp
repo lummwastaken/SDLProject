@@ -1,5 +1,7 @@
 #include "Application.hpp"
 
+#include <spdlog/spdlog.h>
+
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
@@ -8,7 +10,7 @@ namespace SDLGame
 {
 	bool Application::init()
 	{
-		Logger::init();
+		Logger::init(spdlog::level::trace);
 
 		if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_EVENTS) > 0)
 		{
@@ -31,7 +33,7 @@ namespace SDLGame
 				}
 				else
 				{
-					if (!mWindow->init("Test Window", 640, 480))
+					if (!(*mWindow).init())
 					{
 						LOG_CRASH("Failed to initialize window! Shutting down...");
 						return false;
@@ -55,13 +57,15 @@ namespace SDLGame
 				{
 					isRunning = false;
 				}
+
+				(*mWindow).handleEvent(event);
 			}
 		}
 	}
 
 	void Application::shutdown()
 	{
-		mWindow->shutdown();
+		(*mWindow).shutdown();
 		Logger::quit();
 		IMG_Quit();
 		Mix_Quit();

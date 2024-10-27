@@ -2,41 +2,52 @@
 
 namespace SDLGame
 {
-	Window::Window() :
+	Window::Window(const WindowData& data) :
 		mWindow(NULL),
-		mRenderer(NULL)
+		mData(data)
 	{
 	}
 
-	bool Window::init(const char* title, u32 width, u32 height)
+	bool Window::init()
 	{
-		mWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, 0);
+		mWindow = SDL_CreateWindow(
+			mData.title, 
+			SDL_WINDOWPOS_UNDEFINED, 
+			SDL_WINDOWPOS_UNDEFINED, 
+			mData.width, 
+			mData.height, 
+			mData.flags
+		);
 		if (mWindow != NULL)
 		{
-			LOG_TRACE("SDL Window created with title: {}", title);
-			mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED);
-			if (mRenderer != NULL)
-			{
-				LOG_TRACE("SDL Renderer created for window: {}", title);
-			}
-			else
-			{
-				LOG_ERROR("Failed to create renderer for window: {}! SDL Error: {}", title, SDL_GetError());
-				return false;
-			}
+			// renderer initialization
 		}
 		else
 		{
-			LOG_ERROR("Failed to create window with title: {}! SDL Error: {}", title, SDL_GetError());
+			LOG_ERROR("Failed to create window with title: {}! SDL Error: {}", mData.title, SDL_GetError());
 			return false;
 		}
 		return true;
 	}
 
+	void Window::handleEvent(const SDL_Event& e)
+	{
+		if (e.type == SDL_WINDOWEVENT)
+		{
+			switch (e.window.event)
+			{
+
+			}
+		}
+	}
+
+	void Window::render()
+	{
+
+	}
+	
 	void Window::shutdown()
 	{
-		SDL_DestroyRenderer(mRenderer);
-		mRenderer = NULL;
 		SDL_DestroyWindow(mWindow);
 		mWindow = NULL;
 	}

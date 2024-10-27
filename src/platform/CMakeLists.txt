@@ -5,11 +5,12 @@ include_directories(
 )
 
 set(PLATFORM_SOURCES
+	"render/Renderer.cpp"
 	"utils/logging/Logger.cpp"
 )
 
 set(PLATFORM_HEADERS
-	"utils/logging/Logger.hpp"
+	"render/Renderer.hpp"
 )
 
 add_library(PROJ_PLATFORM ${PLATFORM_SOURCES} ${PLATFORM_HEADERS})
