@@ -15,7 +15,7 @@ namespace SDLGame
 	class Logger
 	{
 	public:
-		static void init();
+		static void init(spdlog::level::level_enum level);
 
 		static void quit();
 

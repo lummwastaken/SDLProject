@@ -14,6 +14,12 @@ namespace SDLGame
 		void shutdown();
 
 	private:
-		std::unique_ptr<Window> mWindow = std::make_unique<Window>();
+		WindowData initData = {
+			"SUPER COOL TEST WINDOW", 
+			640, 
+			480, 
+			0
+		};
+		std::unique_ptr<Window> mWindow = std::make_unique<Window>(initData);
 	};
 }
