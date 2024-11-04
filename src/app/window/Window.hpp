@@ -4,6 +4,8 @@
 #include "SDL_render.h"
 #include "SDL_events.h"
 
+#include "Renderer.hpp"
+
 namespace SDLGame 
 {
 	struct WindowData
@@ -28,5 +30,9 @@ namespace SDLGame
 	private:
 		SDL_Window* mWindow;
 		WindowData mData;
+
+		bool mMinimized;
+
+		std::unique_ptr<Renderer> mRenderer = std::make_unique<Renderer>();
 	};
 }
