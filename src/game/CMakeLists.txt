@@ -6,11 +6,11 @@ include_directories(
 )
 
 set(GAME_SOURCES
-	"Test.cpp"
+	"Game.cpp"
 )
 
 set(GAME_HEADERS
-	"Test.hpp"
+	"Game.hpp"
 )
 
 add_library(PROJ_GAME ${GAME_SOURCES} ${GAME_HEADERS})

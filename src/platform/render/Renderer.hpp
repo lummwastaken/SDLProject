@@ -13,7 +13,11 @@ namespace SDLGame
 		{
 		}
 
-		bool Init(SDL_Window* const& window);
+		bool init(SDL_Window* const& window);
+
+		void draw();
+
+		void shutdown();
 	private:
 		SDL_Renderer* mRenderer;
 	};

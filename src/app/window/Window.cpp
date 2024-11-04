@@ -4,7 +4,8 @@ namespace SDLGame
 {
 	Window::Window(const WindowData& data) :
 		mWindow(NULL),
-		mData(data)
+		mData(data),
+		mMinimized(false)
 	{
 	}
 
@@ -20,7 +21,11 @@ namespace SDLGame
 		);
 		if (mWindow != NULL)
 		{
-			// renderer initialization
+			if (!(*mRenderer).init(mWindow))
+			{
+				LOG_ERROR("Failed to create renderer for window: {}", mData.title);
+				return false;
+			}
 		}
 		else
 		{
@@ -36,18 +41,31 @@ namespace SDLGame
 		{
 			switch (e.window.event)
 			{
-
+			case SDL_WINDOWEVENT_MINIMIZED:
+				mMinimized = true;
+				break;
+			case SDL_WINDOWEVENT_MAXIMIZED:
+				mMinimized = false;
+				break;
+			case SDL_WINDOWEVENT_RESTORED:
+				mMinimized = false;
+				break;
 			}
 		}
 	}
 
 	void Window::render()
 	{
-
+		if (!mMinimized)
+		{
+			(*mRenderer).draw();
+		}
 	}
 	
 	void Window::shutdown()
 	{
+		(*mRenderer).shutdown();
+
 		SDL_DestroyWindow(mWindow);
 		mWindow = NULL;
 	}

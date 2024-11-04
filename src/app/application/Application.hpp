@@ -15,7 +15,7 @@ namespace SDLGame
 
 	private:
 		WindowData initData = {
-			"SUPER COOL TEST WINDOW", 
+			"SDL Game Window", 
 			640, 
 			480, 
 			0

@@ -5,6 +5,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
+#include <SDL_thread.h>
 
 namespace SDLGame
 {
@@ -60,6 +61,8 @@ namespace SDLGame
 
 				(*mWindow).handleEvent(event);
 			}
+
+			(*mWindow).render();
 		}
 	}
 
